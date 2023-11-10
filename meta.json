@@ -1,0 +1,13 @@
+{
+  "name": "viam:python-example-module",
+  "visibility": "public",
+  "url": "https://github.com/Fahmina/wifi-sensor",
+  "description": "This is a sensor that exposes wifi network, signal strength, and noise which is available via proc/net/wireless on linux",
+  "models": [
+    {
+      "api": "rdk:component:sensor",
+      "model": "viam:wifi_sensor:linux"
+    }
+  ],
+  "entrypoint": "exec.sh"
+}
