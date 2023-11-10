@@ -1,11 +1,23 @@
-# Python example module
+# HC-SR04 Ultrasonic Sensor Module for Raspberry Pi
+This repository contains a Viam-compatible module that enables a Raspberry Pi to measure distances using the HC-SR04 ultrasonic sensor. This module integrates with Viam's robotics platform, allowing for precise distance measurements in your robotics projects.
+## Getting Started
 
-This is an example of a Viam module using our Python SDK. This repo shows how to:
+### Prerequisites
 
-- Use a Python virtualenv to install your module's dependencies on the robot
-- Write a simple module in Python
-- Use CI to automatically publish a new version when you create a Github release
+- Raspberry Pi (with GPIO pins)
+- HC-SR04 Ultrasonic Distance Sensor
+- Viam account and CLI tool installed
 
+Viam account and CLI tool installed
+
+### Installation
+
+1. Clone the repository to your Raspberry Pi:
+   ```shell
+   git clone https://github.com/Gaurang-1402/viam_hc-sr04_sensor.git
+   cd viam_hc-sr04_sensor
+
+   ```
 ## Contents
 
 - src: folder with python code
@@ -15,26 +27,38 @@ This is an example of a Viam module using our Python SDK. This repo shows how to
 - meta.json: Viam module configuration file
 - requirements.txt: dependencies. When run as a module, setup.sh installs these in the virtualenv
 
-## Forking this repo
+## Install the Python dependencies:
+```shell
+pip install -r requirements.txt
+```
+## Configuration
 
-If you want to copy this repo and run it yourself, you'll need to make a few changes:
+Configuration
+The config.json file is crucial for setting the correct GPIO pin numbers for the HC-SR04 sensor. Modify this file to match your sensor's wiring:
 
-### Create your own meta.json
+```json
+   {
+       "components": [
+           {
+               "name": "ultrasonic_sensor",
+               "type": "sensor",
+               "model": "nyu:hcsr04:linux",
+               "attributes": {
+                   "trigger_pin": 23,
+                   "echo_pin": 24
+               },
+               "depends_on": []
+           }
+       ]
+   }
 
-1. Get the Viam CLI (todo: link to docs)
-1. Rename the existing `meta.json` to `meta.json.old`
-1. Use `viam module create` to create a copy in your own account
-1. Copy all the fields except `name` from meta.json.old (your choice whether to make it public or private)
+```
+Ensure the trigger_pin and echo_pin values match the GPIO pins you've connected the HC-SR04 sensor to on your Raspberry Pi.
 
-### Change all references to the `viam` namespace
+Update meta.json with your module information and Viam account details.
+Modify config.json to set the correct GPIO pin number and any other configurations for the DHT11 sensor.
 
-You'll need to change all the namespace references in the codebase ('viam') to the namespace of your organization on Viam.
+Update meta.json with your module information and Viam account details.
 
-1. You should already have done this in meta.json above
-1. In the "model" field in meta.json (on line 9 when this was written)
-1. In the ModelFamily in wifi_sensor.py, [around here](src/wifi_sensor.py#L13).
-
-### Set a secret if you want to use Github CI
-
-Instructions for setting the secret are [here](https://github.com/viamrobotics/upload-module#setting-up-auth).
-# viam_hc-sr04_sensor
+## Usage
+After uploading, the module can be added to your Viam robot configuration. It will periodically read temperature and humidity data from the DHT11 sensor and update the readings on the Viam platform.
