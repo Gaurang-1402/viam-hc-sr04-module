@@ -1,12 +1,12 @@
 {
-  "name": "viam:python-example-module",
+  "module_id": "nyu:hc-sr04_sensor",
   "visibility": "public",
-  "url": "https://github.com/Fahmina/wifi-sensor",
-  "description": "This is a sensor that exposes wifi network, signal strength, and noise which is available via proc/net/wireless on linux",
+  "url": "https://github.com/Gaurang-1402/viam_hc-sr04_sensor",
+  "description": "A sensor module for measuring distance using the HC-SR04 ultrasonic sensor on Linux.",
   "models": [
     {
       "api": "rdk:component:sensor",
-      "model": "viam:wifi_sensor:linux"
+      "model": "nyu:hc-sr04_sensor:linux"
     }
   ],
   "entrypoint": "exec.sh"

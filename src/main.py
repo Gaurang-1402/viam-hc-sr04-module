@@ -3,7 +3,7 @@ import asyncio
 from viam.module.module import Module
 from viam.components.sensor import Sensor
 
-from .wifi_sensor import MySensor 
+from .ultrasonic_sensor import MySensor 
 
 
 async def main():

@@ -1,0 +1,14 @@
+{
+    "components": [
+        {
+            "name": "ultrasonic_sensor",
+            "type": "sensor",
+            "model": "nyu:hcsr04:linux",
+            "attributes": {
+                "trigger_pin": 23,
+                "echo_pin": 24
+            },
+            "depends_on": []
+        }
+    ]
+}
