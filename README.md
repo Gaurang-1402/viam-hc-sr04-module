@@ -61,4 +61,4 @@ Modify config.json to set the correct GPIO pin number and any other configuratio
 Update meta.json with your module information and Viam account details.
 
 ## Usage
-After uploading, the module can be added to your Viam robot configuration. It will periodically read temperature and humidity data from the DHT11 sensor and update the readings on the Viam platform.
+After uploading, the module can be added to your Viam robot configuration. It will periodically read distance readings from the HC-SR04 sensor and update the readings on the Viam platform.
